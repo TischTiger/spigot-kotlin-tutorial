@@ -1,0 +1,4 @@
+name: Tutorial
+version: ${project.version}
+main: de.tischtiger.tutorial.Tutorial
+api-version: 1.16
