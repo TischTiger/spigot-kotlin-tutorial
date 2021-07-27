@@ -5,6 +5,12 @@ import org.bukkit.ChatColor
 import org.bukkit.plugin.java.JavaPlugin
 
 class Person {
+    companion object {
+        var anzahl = 0
+    }
+    init {
+        anzahl = anzahl + 1
+    }
     var vorname = ""
     var nachname = ""
 
@@ -15,17 +21,13 @@ class Person {
 
 class Tutorial : JavaPlugin() {
     override fun onEnable() {
-        // class(Klassen) und fun(Funktionen/Methoden)
-        output("Hallo Welt!")
-        // Tutorial: Hallo Welt!
+        // object(Objekte) und companion object(Begleitobjekt)
         val p1 = Person()
         p1.vorname = "Eva"
-        p1.nachname = "Musterfrau"
         val p2 = Person()
         p2.vorname = "Max"
-        p2.nachname = "Mustermann"
-        output("${p1.vollername()} liebt ${p2.vollername()}")
-        // Tutorial: Eva Musterfrau liebt Max Mustermann
+        output("${p1.vorname} ${p2.vorname} ${Person.anzahl}")
+        // Tutorial: Eva Max 2
     }
 
     override fun onDisable() {
