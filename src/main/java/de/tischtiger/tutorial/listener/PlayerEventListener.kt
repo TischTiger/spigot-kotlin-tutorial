@@ -18,13 +18,50 @@ object PlayerEventListener : Listener {
     fun onPlayerBedEnter(event: PlayerBedEnterEvent) {
         val player = event.player
         player.sendMessage("Du kannst auf diesem Server nicht schlafen!")
+        // Boolean true oder false
+
+        // and && Und-Operator
+        // true == true && true
+        // false == true && false
+        // false == false && true
+        // false == false && false
+
+        // or || Oder-Operator
+        // true == true || true
+        // true == true || false
+        // true == false || true
+        // false == false || false
+
+        // not ! Nicht-Operator
+        // true == !false
+        // false == !true
+
+        // () Klammern
+
         event.isCancelled = true
     }
 
     @EventHandler
     fun onPlayerMoveEvent(event: PlayerMoveEvent) {
         val player = event.player
-        val location = event.from
-        Bukkit.getConsoleSender().sendMessage("Move $player: ${location.x} ${location.y} ${location.z} ${location.pitch} ${location.yaw}")
+        val from = event.from
+        val to = event.to
+        when (from.blockX) {
+            100 -> {
+                return
+            }
+            in 1..10 -> {
+                event.isCancelled = true
+            }
+        }
+        when {
+            to == null -> return
+            (from.blockX != to.blockX) || (from.blockY != to.blockY) || (from.blockZ != to.blockZ) -> {
+                Bukkit.getConsoleSender().sendMessage("Move ${player.name}: ${to.blockX} ${to.blockY} ${to.blockZ}")
+            }
+            else -> {
+                // Nichts machen
+            }
+        }
     }
 }
