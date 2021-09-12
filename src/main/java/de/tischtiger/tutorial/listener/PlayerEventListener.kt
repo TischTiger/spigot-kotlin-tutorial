@@ -20,23 +20,23 @@ object PlayerEventListener : Listener {
         player.sendMessage("Du kannst auf diesem Server nicht schlafen!")
         event.isCancelled = true
 
-        var x = 0
-        while (x <= 10) {
-            if (x % 3 == 2) {
-                break
+        // List, Array, for
+        val list = listOf("Hallo", "Peter", "break", "Hallo", "Welt")
+        list[0] == "Hallo"
+        list[1] == "Welt"
+
+        val array = intArrayOf(1, 3, 5, 15)
+        array[0] == 1
+        array[1] == 3
+
+        val world = player.location.world ?: return
+
+        for (other in world.players) {
+            if (player == other) {
+                continue
             }
-            player.sendMessage("$x")
-            x++
+            other.sendMessage("Hey, ${player.name} hat versucht zu schlafen.")
         }
-        // 0
-        // 1
-        do {
-            player.sendMessage("$x")
-            x--
-        } while (x >= 0)
-        // 2
-        // 1
-        // 0
     }
 
     @EventHandler
