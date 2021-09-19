@@ -2,3 +2,9 @@ name: Tutorial
 version: ${project.version}
 main: de.tischtiger.tutorial.Tutorial
 api-version: 1.16
+
+commands:
+  heal:
+    description: Heals the player
+    usage: /<command>
+    permission: default

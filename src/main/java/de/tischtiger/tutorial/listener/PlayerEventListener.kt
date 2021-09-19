@@ -20,15 +20,6 @@ object PlayerEventListener : Listener {
         player.sendMessage("Du kannst auf diesem Server nicht schlafen!")
         event.isCancelled = true
 
-        // List, Array, for
-        val list = listOf("Hallo", "Peter", "break", "Hallo", "Welt")
-        list[0] == "Hallo"
-        list[1] == "Welt"
-
-        val array = intArrayOf(1, 3, 5, 15)
-        array[0] == 1
-        array[1] == 3
-
         val world = player.location.world ?: return
 
         for (other in world.players) {
