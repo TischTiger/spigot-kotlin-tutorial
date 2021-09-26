@@ -7,4 +7,12 @@ commands:
   heal:
     description: Heals the player
     usage: /<command>
-    permission: default
+    permission: tutorial.heal
+    aliases:
+      - hl
+
+permissions:
+  tutorial.heal:
+    default: true
+  tutorial.heal.other:
+    default: op
